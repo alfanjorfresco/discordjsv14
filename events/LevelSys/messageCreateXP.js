@@ -13,6 +13,7 @@ module.exports = {
 client.on("messageCreate", async (message) => {
     const guildID = message.guild?.id;
     const userID = message.author?.id;
+    const username = `${message.author.username}#${message.author.discriminator}`;
 
     if (message.author.bot /* || message.guild */) return;
     if (coolDown.has(userID)) return;
@@ -28,6 +29,7 @@ client.on("messageCreate", async (message) => {
                 userID,
             },
             {
+                user: username,
                 guildID,
                 userID,
                 $inc: { xp: xpAmount },
@@ -68,6 +70,7 @@ client.on("messageCreate", async (message) => {
 
         await xpSchema.updateOne(
             {
+                user: username,
                 guildID,
                 userID,
             },
@@ -84,5 +87,5 @@ client.on("messageCreate", async (message) => {
 
     setTimeout(() => {
         coolDown.delete(message.author.id);
-    }, 30 * 1000);
+    }, 10 * 1000);
 });
