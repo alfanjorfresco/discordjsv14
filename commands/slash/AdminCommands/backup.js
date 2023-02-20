@@ -1,5 +1,6 @@
 const { EmbedBuilder } = require("discord.js");
 const backup = require("discord-backup");
+const path = require("path");
 require("dotenv").config();
 
 module.exports = {
@@ -20,46 +21,41 @@ module.exports = {
             return;
         }
 
+        // todo --> Create bacups only locally
         const createBackup = async () => {
             let embed;
 
+            backup.setStorageFolder(path.join(__dirname, "../../../backups"));
             await backup
                 .create(interaction.member.guild, {
                     jsonBeautify: true,
                 })
                 .then(async (backupData) => {
-                    // And send informations to the backup owner
-
                     embed = new EmbedBuilder()
                         .setTitle(
-                            "¡La copia de seguridad ha sido creada! Para cargarla, escriba este comando en el servidor de su elección: `" +
+                            "✅ ¡La copia de seguridad ha sido creada! Para cargarla, escriba este comando en el servidor de su elección: `" +
                                 process.env.PREFIX +
                                 "load-backup " +
                                 backupData.id +
                                 "`!"
                         )
                         .setDescription(`Backup creado por <@${interaction.user.id}>`)
-                        .setColor("BLUE")
+                        .setColor("#1cc91c")
                         .setFooter({
                             text: process.env.NAME_BOT,
                             iconURL: client.user.displayAvatarURL(),
                         })
                         .setTimestamp();
-
-                    // interaction.reply({ embeds: [embed], ephemeral: true });
                 })
                 .catch(async (e) => {
-                    console.log(e);
                     embed = new EmbedBuilder()
-                        .setDescription(`Error: ${e}`)
-                        .setColor("BLUE")
+                        .setDescription(`❌ Error: ${e}`)
+                        .setColor("#db1e1e")
                         .setFooter({
                             text: process.env.NAME_BOT,
                             iconURL: client.user.displayAvatarURL(),
                         })
                         .setTimestamp();
-
-                    // await interaction.reply({ embeds: [embed], ephemeral: true });
                 });
 
             return embed;

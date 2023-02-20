@@ -111,11 +111,11 @@ module.exports = {
                     value: "`Crear codigo QR.`",
                     inline: true,
                 },
-                {
-                    name: `*${process.env.PREFIX}tweet*`,
-                    value: "`Crear Tweet.`",
-                    inline: true,
-                },
+                // {
+                //     name: `*${process.env.PREFIX}tweet*`,
+                //     value: "`Crear Tweet.`",
+                //     inline: true,
+                // },
                 {
                     name: `*${process.env.PREFIX}playstore + texto*`,
                     value: "`Buscar App.`",
@@ -127,13 +127,23 @@ module.exports = {
                     inline: true,
                 },
                 {
+                    name: `*${process.env.PREFIX}emoji-list*`,
+                    value: "`Emojis disponibles Servidor.`",
+                    inline: true,
+                },
+                {
                     name: `*${process.env.PREFIX}tiempo + ciudad*`,
                     value: "`Información del tiempo.`",
                     inline: true,
                 },
                 {
-                    name: `*${process.env.PREFIX}elrellano + página*`,
-                    value: "`Vídeos elrellano.`",
+                    name: `*${process.env.PREFIX}play-radio + emisora*`,
+                    value: "`Reproducir emisora radio.`",
+                    inline: true,
+                },
+                {
+                    name: `*${process.env.PREFIX}stop-radio*`,
+                    value: "`Detener radio.`",
                     inline: true,
                 }
             )
@@ -154,7 +164,7 @@ module.exports = {
                     inline: true,
                 },
                 {
-                    name: `*${process.env.PREFIX}usuario + @usuario*`,
+                    name: `*${process.env.PREFIX}usuario-info + @usuario*`,
                     value: "`Información sobre un usuario.`",
                     inline: true,
                 },
@@ -166,6 +176,11 @@ module.exports = {
                 {
                     name: `*${process.env.PREFIX}bigtext + texto*`,
                     value: "`Texto grande con numeros y letras.`",
+                    inline: true,
+                },
+                {
+                    name: `*${process.env.PREFIX}elrellano + página*`,
+                    value: "`Vídeos elrellano.`",
                     inline: true,
                 },
                 {
@@ -204,8 +219,18 @@ module.exports = {
                     inline: true,
                 },
                 {
+                    name: `*${process.env.PREFIX}bot-info*`,
+                    value: "`Info del bot.`",
+                    inline: true,
+                },
+                {
                     name: `*${process.env.PREFIX}ping*`,
                     value: "`Ping del bot.`",
+                    inline: true,
+                },
+                {
+                    name: `*${process.env.PREFIX}eval*`,
+                    value: "`Evaluar codigo JavaScript. (Admin/Mods)`",
                     inline: true,
                 },
                 {
@@ -241,6 +266,21 @@ module.exports = {
                 {
                     name: `*${process.env.PREFIX}info-backup*`,
                     value: "`Info Backup. (Admin)`",
+                    inline: true,
+                },
+                {
+                    name: `*${process.env.PREFIX}list-backup*`,
+                    value: "`Listar Backups. (Admin)`",
+                    inline: true,
+                },
+                {
+                    name: `*${process.env.PREFIX}delete-backup*`,
+                    value: "`Borrar Backup. (Admin)`",
+                    inline: true,
+                },
+                {
+                    name: `*${process.env.PREFIX}bot-avatar*`,
+                    value: "`Cambiar avatar bot. (Admin)`",
                     inline: true,
                 }
             )
