@@ -3,7 +3,6 @@ const config = require("./config/config");
 require("dotenv").config();
 const { Player } = require("discord-player");
 const superDjs = require("super-djs");
-
 const usersToAlertTwitch = require("./utils/usersToAlertTwitch");
 const usersToAlertYoutube = require("./utils/usersToAlertYoutube");
 const setIntervalTwitch = require("./services/setIntervalTwitch");
