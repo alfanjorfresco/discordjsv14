@@ -4,11 +4,11 @@ const usersDiscordSchema = require("../../schemas/usersDiscordSchema");
 require("dotenv").config();
 
 const webhook = new WebhookClient({
-    url: process.env.WEBHOOK_LOGS_CHANNEL,
+    url: process.env.WEBHOOK_LOGS_CHANNEL
 });
 
 module.exports = {
-    name: "guildMemberAdd",
+    name: "guildMemberAdd"
 };
 
 client.on("guildMemberAdd", async (member) => {
@@ -23,16 +23,16 @@ client.on("guildMemberAdd", async (member) => {
         .setTimestamp()
         .setFooter({
             text: process.env.NAME_BOT,
-            iconURL: client.user.displayAvatarURL(),
+            iconURL: client.user.displayAvatarURL()
         });
 
     client.channels.cache.get(process.env.GENERAL_CHANNEL_ID).send({ embeds: [embed] });
 
-    // AÑADIR USUARIO A LA BASE DE DATOS CUANDO INGRESA AL SERVIDOR
+    // Add user to the database when he joins the server
     let dataUserDB = await usersDiscordSchema.findOne({
         id: member.user.id,
         user: member.user.username,
-        discriminator: member.user.discriminator,
+        discriminator: member.user.discriminator
     });
 
     if (!dataUserDB) {
@@ -41,24 +41,24 @@ client.on("guildMemberAdd", async (member) => {
             user: member.user.username,
             discriminator: member.user.discriminator,
             date: new Date().toLocaleString("es-ES", {
-                timeZone: "Europe/Madrid",
-            }),
+                timeZone: "Europe/Madrid"
+            })
         });
         dataUserDB.save();
     }
 
-    // Añadir rol a un usuario cuando se une al servidor
+    // Add role to a user when he joins the server
     member.roles.add("726770857531408404");
 
     // Send bye message to the logs channel
     const hiEmbed = new EmbedBuilder()
         .setAuthor({
             name: `:wave: ${member.user.username}#${member.user.discriminator} ha entrado al servidor!`,
-            iconURL: member.user.displayAvatarURL({ dynamic: true }),
+            iconURL: member.user.displayAvatarURL({ dynamic: true })
         })
         .setFooter({
             text: `${process.env.NAME_BOT}`,
-            iconURL: client.user.displayAvatarURL(),
+            iconURL: client.user.displayAvatarURL()
         })
         .setTimestamp()
         .setColor("#c9af30");
