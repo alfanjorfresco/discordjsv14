@@ -110,6 +110,11 @@ const elrellanoScrap = async (client) => {
                 const videoUrl = $(element).find(".wp-block-video video").attr("src");
                 videoUrlYT = $(element).find(".entry-content iframe").attr("src");
 
+                if (videoUrlYT && videoUrlYT.includes("rumble")) {
+                    // videoUrlYT = videoUrlYT.replace("/embed/", "/").replace("/?pub=c0in", "");  Get link but not working to see the video.
+                    videoUrlYT = undefined;
+                }
+
                 if (!videoUrlYT) {
                     videoUrlYT = $(element)
                         .find(".entry-content .wp-block-embed iframe")
