@@ -41,7 +41,6 @@ module.exports = {
                 text: process.env.NAME_BOT,
                 iconURL: client.user.displayAvatarURL()
             });
-
         await interaction.editReply({ embeds: [embed] });
     }
 };
