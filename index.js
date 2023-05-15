@@ -5,7 +5,7 @@ const { Player } = require("discord-player");
 const superDjs = require("super-djs");
 
 const usersToAlertTwitch = require("./utils/usersToAlertTwitch");
-const usersToAlertYoutube = require("./utils/usersToAlertYoutube");
+const usersToAlertYoutube = require("./utils/usersToAlertYoutube"); 
 const setIntervalTwitch = require("./services/setIntervalTwitch");
 const setIntervalYoutube = require("./services/setIntervalYoutube");
 const fetchNews = require("./services/fetchNews");
