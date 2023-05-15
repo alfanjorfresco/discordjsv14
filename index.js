@@ -9,7 +9,7 @@ const usersToAlertYoutube = require("./utils/usersToAlertYoutube");
 const setIntervalTwitch = require("./services/setIntervalTwitch");
 const setIntervalYoutube = require("./services/setIntervalYoutube");
 const fetchNews = require("./services/fetchNews");
-const epicGamesFree = require("./services/epicGamesFree");
+const epicGamesFree = require("./services/epicGamesFree"); 
 const elrellanoScrap = require("./services/elrellanoScrap");
 
 // Creating a new client:
