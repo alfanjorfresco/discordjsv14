@@ -29,7 +29,7 @@ module.exports = {
 
         await interaction.deferReply({ content: "Cargando..." });
 
-        let image = `https://some-random-api.ml/canvas/tweet?avatar=${avatarUrl}&displayname=${
+        let image = `https://some-random-api.com/canvas/tweet?avatar=${avatarUrl}&displayname=${
             user.username
         }&username=${user.username}&comment=${encodeURIComponent(text)}`;
 
@@ -41,6 +41,7 @@ module.exports = {
                 text: process.env.NAME_BOT,
                 iconURL: client.user.displayAvatarURL()
             });
+
         await interaction.editReply({ embeds: [embed] });
     }
 };

@@ -49,7 +49,7 @@ module.exports = {
                 .setDescription(
                     results
                         .slice(0, 5)
-                        .map((result) => `**${++index}** - [${result.title}](${result.link})`)
+                        .map((result) => `**${++index}** - [${result.title}](${result.link})\n`)
                         .join("\n")
                 );
         } catch (e) {
